@@ -1,0 +1,3 @@
+import { AppCard } from '@/components/ui/AppCard';
+import type { TeamMember } from '@/types/crm';
+export function RepPerformanceCard({ rep }: { rep: TeamMember }) { return <AppCard className="border border-[rgba(143,168,90,0.16)]"><div className="flex items-center justify-between"><h4 className="font-semibold">{rep.name}</h4><span className="text-xs text-slate-500">{rep.team}</span></div><p className="mt-1 text-sm text-slate-600">Ventas ${rep.kpis.sales.toLocaleString()} · Conv. {rep.kpis.conversion}%</p><p className="text-sm text-slate-600">Citas {rep.kpis.appointments} · Follow-ups {rep.kpis.followUps}</p></AppCard>; }

@@ -1,0 +1,6 @@
+
+# Local source bundle
+CAPITALCONSOLE.zip
+
+# Optional local binary image assets
+CAPITALCONSOLE/public/images/*.webp

@@ -1,0 +1,6 @@
+'use client';
+import { AppCard } from '@/components/ui/AppCard';
+import { useSalesStore } from '@/store/useSalesStore';
+import type { LeadStage } from '@/types/crm';
+const stages: LeadStage[] = ['Nuevo lead','Contactado','Calificado','Cita agendada','Presentación','Negociación','Cerrado ganado','Cerrado perdido'];
+export function PipelineBoard(){const {leads,moveLeadStage}=useSalesStore();return <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">{stages.map((stage)=>{const stageLeads=leads.filter(l=>l.stage===stage);return <AppCard key={stage} className="space-y-2"><h4 className="text-sm font-semibold">{stage} <span className="text-slate-500">({stageLeads.length})</span></h4>{stageLeads.map((lead)=><div key={lead.id} className="rounded-xl border border-slate-200 p-2 text-sm"><p className="font-semibold">{lead.name}</p><p className="text-slate-500">${lead.estimatedValue.toLocaleString()}</p><div className="mt-2 flex gap-2"><button className="rounded border px-2" onClick={()=>{const i=stages.indexOf(stage); if(i>0) moveLeadStage(lead.id,stages[i-1]);}}>←</button><button className="rounded border px-2" onClick={()=>{const i=stages.indexOf(stage); if(i<stages.length-1) moveLeadStage(lead.id,stages[i+1]);}}>→</button></div></div>)}</AppCard>})}</div>}

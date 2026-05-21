@@ -1,0 +1,2 @@
+import { StatCard } from '@/components/ui/StatCard';
+export function SalesSummary(){return <div className="grid gap-3 md:grid-cols-4"><StatCard title="Total pipeline" value="$39.7K" change="Valor en proceso" module="assets" /><StatCard title="Deals activos" value="2" change="Leads en negociación" module="income" /><StatCard title="Tasa de cierre" value="33%" change="Últimos 30 días" module="goals" /><StatCard title="Valor proyectado" value="$58K" change="Proyección mensual" module="calendar" /></div>}
